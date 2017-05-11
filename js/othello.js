@@ -7,6 +7,7 @@ class Othello {
 		this.chipState = this.white;
 		this.mark = [];
 		this.reset();
+		this.ajax = new XMLHttpRequest();
 	}
 
 	reset()
@@ -84,7 +85,6 @@ class Othello {
 	{
 		let sx = x,
 			sy = y;
-
 		while(this.board[y][x] != this.blank) {
 			x +=h; //nyari ke sebelah
 			y +=i; //nyari ke sebelah
@@ -97,11 +97,23 @@ class Othello {
 					y -= i;
 					if(x == sx && y == sy) break;
 					this.board[y][x] = color;
+					this.saveCoordinate(x, y, color);
 				}
+				this.saveCoordinate(sx, sy, color);
 				return true;
 			}
 		}
 
+		return false;
+	}
+
+	saveCoordinate(y,x, color)
+	{
+		this.ajax.open('GET', 'upload.php?mode=coordinate&id='+dataPlayer.data.id+'&x='+x+'&y='+y+'&color='+color, false);
+		this.ajax.send();
+		if(this.ajax.readyState == XMLHttpRequest.DONE) {
+			return true;
+		}
 		return false;
 	}
 }

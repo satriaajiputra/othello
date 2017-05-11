@@ -3,6 +3,7 @@ class Game {
 	{
 		this.othello = othello;
 		this.reset();
+		this.isStarted = 0;
 	}
 
 	reset()
@@ -16,7 +17,6 @@ class Game {
 
 	clicked(e)
 	{
-
 		let x = e.x	- canvas.offsetLeft,
 			y = e.y - canvas.offsetTop;
 
@@ -28,6 +28,8 @@ class Game {
 		x = Math.floor(x / (w / this.othello.size));
 		y = Math.floor(y / (h / this.othello.size));
 
+
+		
 		if(this.othello.board[y][x] != this.othello.blank) return;
 
 		if(this.othello.chipState == this.othello.black) this.othello.board[y][x] = this.othello.black;
@@ -91,11 +93,28 @@ class Game {
 		if(black == 0 || white == 0 || black + white == this.othello.size * this.othello.size) {
 			if(black > white) {
 				alert("Black Win");
+				alert("Jika ingin mencoba lagi, klik tombol press to begin");
 			} else {
 				alert("White Win");
+				let nama = prompt("Selamat kamu menang, masukan nama anda");
+				// while(nama == null || nama == "") {
+				// 	nama = prompt("Selamat kamu menang, masukan nama anda");
+				// }
+				if(nama !== null && nama !== "") {
+					let params = "id="+dataPlayer.data.id+"&name="+nama+"&score="+white;
+					ajax.open("post", "upload.php?mode=save", true);
+					ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+					ajax.send(params);
+					document.cookie = "";
+					return true;
+				}	
+				
+				alert("Jika ingin mencoba lagi, klik tombol press to begin");
 			}
 
-			this.reset();
+			
 		}
 	}
+
+
 }
