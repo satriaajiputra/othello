@@ -1,0 +1,42 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Othello Game</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="wrapper">
+		<div class="row">
+			<div class="main-game">
+				<div id="game" class="game">
+					<canvas id="canvas" width="420" height="420"></canvas>
+					<div class="text">
+						Now turn : <span id="currText"></span>
+					</div>
+				</div>
+				<div id="rules">
+					<h2>Rules of game:</h2>
+					<ul>
+						<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora doloremque dolore minus possimus, ex aut rem quod dignissimos commodi aliquam labore dicta quis asperiores 
+						fuga eveniet ea odio officia voluptates?</li>
+						<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non neque exercitationem minus suscipit. Itaque cum iure facere quod natus, at temporibus vitae numquam debitis voluptates neque eveniet, omnis a expedita.</li>
+					</ul>
+					<form action="" method="post" class="photoUpload" enctype="multipart/form-data" id="photoUpload">
+						<canvas id="image" width="50" height="50"></canvas>
+						<h2>Upload your photo</h2>
+						<input type="file" name="photo">
+						<button>Press to Begin</button>
+					</form>
+				</div>
+			</div>
+			<div class="sidebar">
+				
+			</div>
+		</div>
+	</div>
+	<script src="js/config.js"></script>
+	<script src="js/othello.js"></script>
+	<script src="js/game.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>

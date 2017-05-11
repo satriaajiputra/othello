@@ -1,0 +1,42 @@
+body {
+	margin: 0;
+	font-family: sans-serif;
+}
+.wrapper {
+	max-width: 1100px;
+	margin: 50px auto;
+}
+.row:after, .row:before {
+	display: block;
+	content: '';
+	clear: both;
+}
+.main-game {
+	width: 69.5%;
+	float: left;
+	margin-right: .5%;
+	box-sizing: border-box;
+	border-right: 1px solid #e2e2e2;
+	border-left: 1px solid #e2e2e2;
+	padding: 0 20px;
+}
+.game {
+	text-align: center;
+}
+.sidebar {
+	width: 29.5%;
+	margin-left: .5%;
+	float: left;
+	box-sizing: border-box;
+}
+.text {
+	margin-top: 20px;
+	font-size: 18px;
+}
+.photoUpload {
+	width: 70%;
+	margin: 10px auto;
+	border: 1px solid #e2e2e2;
+	padding: 20px;
+	text-align: center;
+}
