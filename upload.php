@@ -16,9 +16,9 @@ class GameOthello
 }
 
 $init = new GameOthello();
-
-if(isset($GLOBALS['HTTP_RAW_POST_DATA'])) {
-	$data['name'] = $init->upload($GLOBALS['HTTP_RAW_POST_DATA']);
+$foto = file_get_contents("php://input");
+if(isset($foto)) {
+	$data['name'] = $init->upload($foto);
 }
 
 echo json_encode($data);
